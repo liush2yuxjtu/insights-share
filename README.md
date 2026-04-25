@@ -104,10 +104,39 @@ After install, hooks register automatically.
 The first session inside any project that already has a `CLAUDE.md`
 triggers the append-only force-install marker block.
 
-### Update
+### Update (instead of reinstall)
 
 ```bash
+# 1. pull latest commits + bump installed version
 claude plugin update insights-share@insights-share
+
+# 2. RESTART Claude Code (or open a fresh session) — running CC processes
+#    cache the plugin's system prompt and won't see new skills/hooks until
+#    they're re-launched. `claude plugin update --help` already warns about this.
+```
+
+If the marketplace schema itself changed (rare):
+
+```bash
+claude plugin marketplace update insights-share   # re-fetch marketplace.json
+claude plugin update              insights-share@insights-share
+```
+
+To check if an update is available before pulling:
+
+```bash
+claude plugin list | grep -A2 insights-share                          # local version
+gh api repos/liush2yuxjtu/insights-share/commits/main --jq '.sha[:12]' # remote HEAD
+```
+
+Hard reinstall (last resort — when `update` won't budge):
+
+```bash
+claude plugin uninstall          insights-share@insights-share
+claude plugin marketplace remove insights-share
+claude plugin marketplace add    liush2yuxjtu/insights-share
+claude plugin install            insights-share@insights-share
+claude plugin enable             insights-share@insights-share
 ```
 
 ### Uninstall
