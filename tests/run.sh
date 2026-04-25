@@ -475,6 +475,157 @@ reg=$(python3 -c 'import json; d=json.load(open("/Users/m1/.claude/plugins/known
 [[ "$reg" == "True" ]] && ok "registered in known_marketplaces.json" || fail "not registered"
 
 # ----------------------------------------------------------------------
+sec "B1 canonical-remote: HTTPS == SSH"
+canon_https=$(echo "https://github.com/Foo/Bar.git" | bash scripts/canonical-remote.sh --from-url)
+canon_ssh=$(echo "git@github.com:Foo/Bar.git"     | bash scripts/canonical-remote.sh --from-url)
+[[ "$canon_https" == "$canon_ssh" && "$canon_https" == "github.com/foo/bar" ]] \
+  && ok "canonical HTTPS=SSH normalised: $canon_https" \
+  || fail "canonical mismatch" "https=$canon_https ssh=$canon_ssh"
+
+# ----------------------------------------------------------------------
+sec "B2 Layer 1 PII filter — adversarial leaks=0"
+gate0_out=$(bash tests/gate0/run-gate0.sh --strict 2>&1 || true)
+verdict=$(printf '%s' "$gate0_out" | python3 -c 'import json,sys,re
+m = re.search(r"\{.*\}", sys.stdin.read(), re.S)
+print(json.loads(m.group(0))["verdict"] if m else "ERR")' 2>/dev/null || echo ERR)
+[[ "$verdict" == "PASS" ]] && ok "Gate-0 verdict PASS" || fail "Gate-0 verdict" "$verdict"
+
+# ----------------------------------------------------------------------
+sec "B3 Layer 2 haiku filter — schema valid (offline-tolerant)"
+bash scripts/filter-haiku.sh --self-test >/dev/null 2>&1 \
+  && ok "haiku filter self-test ok" \
+  || fail "haiku filter self-test"
+
+# ----------------------------------------------------------------------
+sec "B4 PAT auth lifecycle (set/get/has/forget)"
+slug_test="github.com__test__sample"
+echo "ghp_pat_test_value_for_unit_check" | bash scripts/pat-auth.sh set "$slug_test" >/dev/null
+bash scripts/pat-auth.sh has "$slug_test" && ok "PAT has after set" || fail "PAT has after set"
+mode=$(stat -f '%Sp' "$HOME/.gstack/insights-auth/${slug_test}.token" 2>/dev/null \
+       || stat -c '%A' "$HOME/.gstack/insights-auth/${slug_test}.token" 2>/dev/null)
+[[ "$mode" == "-rw-------" ]] && ok "PAT chmod 600" || fail "PAT chmod" "$mode"
+bash scripts/pat-auth.sh forget "$slug_test" >/dev/null
+bash scripts/pat-auth.sh has "$slug_test" || ok "PAT cleared after forget"
+
+# ----------------------------------------------------------------------
+sec "B5 retrieve-local self-test"
+bash scripts/retrieve-local.sh --self-test 2>&1 | grep -q PASS \
+  && ok "retrieve-local self-test PASS" \
+  || fail "retrieve-local self-test"
+
+# ----------------------------------------------------------------------
+sec "B6 inject-insights hot path ≤500ms p95 (20 iter)"
+slug_pl="github.com__bench__insights-share"
+mkdir -p "$HOME/.gstack/insights/${slug_pl}/.mirror"
+cat > "$HOME/.gstack/insights/${slug_pl}/.mirror/lessons.jsonl" <<EOF2
+{"id":"l1","captured_at":1000,"commit_id":"abc","topic_tags":["vue-reactivity"],"kind":"raw","text":"Mutating Vue 3 props leaks reactive state."}
+{"id":"l2","captured_at":2000,"commit_id":"def","topic_tags":["postgres"],"kind":"raw","text":"FOR UPDATE deadlocked the order writer."}
+{"id":"l3","captured_at":3000,"commit_id":"ghi","topic_tags":["gradle"],"kind":"raw","text":"Stale gradle cache breaks AAR resolution."}
+EOF2
+# Inject a fake remote via env so canonical_slug resolves to slug_pl.
+benchdir=$(mktemp -d)
+( cd "$benchdir" && git init -q && git remote add origin "git@github.com:bench/insights-share.git" )
+samples=()
+for i in $(seq 1 20); do
+  s=$(python3 -c 'import time;print(int(time.time()*1000))')
+  echo '{"prompt":"vue reactivity bug help","cwd":"'$benchdir'","session_id":"l-'$i'"}' \
+      | bash scripts/inject-insights.sh >/dev/null 2>&1
+  e=$(python3 -c 'import time;print(int(time.time()*1000))')
+  samples+=($((e-s)))
+done
+sorted_samples=$(printf '%s\n' "${samples[@]}" | sort -n)
+n=${#samples[@]}
+p95_idx=$(( (n * 95 + 99) / 100 ))
+p95=$(printf '%s\n' "$sorted_samples" | sed -n "${p95_idx}p")
+[[ "${p95:-0}" -le 500 ]] \
+  && ok "inject-insights p95=${p95}ms ≤ 500ms" \
+  || fail "inject-insights p95 too slow" "${p95}ms (samples: ${samples[*]})"
+rm -rf "$HOME/.gstack/insights/${slug_pl}" "$benchdir"
+
+# ----------------------------------------------------------------------
+sec "B7 capture-async writes buffer + spawns watchdog"
+asyncdir=$(mktemp -d)
+( cd "$asyncdir" && git init -q && git remote add origin "git@github.com:bench/async.git" )
+echo '{"session_id":"sB7","transcript_path":"/tmp/fake","cwd":"'$asyncdir'"}' \
+  | bash scripts/capture-async.sh
+slug_b7="github.com__bench__async"
+[[ -f "$HOME/.gstack/insights/${slug_b7}/.buffer/sB7.jsonl" ]] \
+  && ok "capture-async wrote buffer file" \
+  || fail "buffer not written"
+[[ -f "$HOME/.gstack/insights/${slug_b7}/.buffer/.watchdog-sB7.pid" ]] \
+  && ok "watchdog pid file created" \
+  || fail "watchdog not spawned"
+# Cleanup
+for pid in $(pgrep -f "finalize-buffer.sh ${slug_b7} sB7"); do kill "$pid" 2>/dev/null || true; done
+rm -rf "$HOME/.gstack/insights/${slug_b7}" "$asyncdir"
+
+# ----------------------------------------------------------------------
+sec "B8 rate-lesson appends to ratings.jsonl"
+ratedir=$(mktemp -d)
+( cd "$ratedir" && git init -q && git remote add origin "git@github.com:bench/rate.git" )
+slug_rate="github.com__bench__rate"
+( cd "$ratedir" && bash "$ROOT/scripts/rate-lesson.sh" lesson-bench-1 good "smoke test" >/dev/null )
+[[ -f "$HOME/.gstack/insights/${slug_rate}/ratings.jsonl" ]] \
+  && ok "ratings.jsonl created" \
+  || fail "ratings.jsonl missing"
+last=$(tail -1 "$HOME/.gstack/insights/${slug_rate}/ratings.jsonl" 2>/dev/null \
+       | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["verdict"])')
+[[ "$last" == "good" ]] && ok "rating verdict round-trip" || fail "rating verdict" "$last"
+rm -rf "$HOME/.gstack/insights/${slug_rate}" "$ratedir"
+
+# ----------------------------------------------------------------------
+sec "B9 sync-mirror status / ensure (offline-tolerant)"
+status=$(bash scripts/sync-mirror.sh status github.com__nonexistent__test 2>/dev/null)
+[[ "$status" == *'"clone":false'* ]] && ok "sync-mirror status reports false" || fail "sync-mirror status" "$status"
+ensure=$(bash scripts/sync-mirror.sh ensure github.com__nonexistent__test 2>/dev/null)
+echo "$ensure" | grep -q 'mirror_not_found' && ok "ensure logs mirror_not_found warning" \
+  || fail "ensure missing warning" "$ensure"
+
+# ----------------------------------------------------------------------
+sec "B10 buffer-recover idempotent on empty dir"
+out=$(bash scripts/buffer-recover.sh github.com__missing__buf 2>&1)
+echo "$out" | grep -q '"recovered":0' && ok "buffer-recover handles missing dir" \
+  || fail "buffer-recover" "$out"
+
+# ----------------------------------------------------------------------
+sec "B11 flush-buffer reports finalized count"
+flushdir=$(mktemp -d)
+( cd "$flushdir" && git init -q && git remote add origin "git@github.com:bench/flush.git" )
+out=$(cd "$flushdir" && bash "$ROOT/scripts/flush-buffer.sh" 2>&1)
+echo "$out" | grep -q '"finalized"' && ok "flush-buffer JSON includes finalized" \
+  || fail "flush-buffer output" "$out"
+rm -rf "$flushdir"
+
+# ----------------------------------------------------------------------
+sec "B12 embed-fallback degrades gracefully without sentence-transformers"
+fb=$(printf '%s' '{"prompt":"vue","lessons":[{"id":"x","topic_tags":["vue"],"text":"vue 3 reactivity"}],"top_k":1}' \
+     | python3 scripts/embed-fallback.py 2>/dev/null)
+echo "$fb" | python3 -c 'import sys,json; d=json.load(sys.stdin); assert isinstance(d,list) and d and "score" in d[0]' 2>/dev/null \
+  && ok "embed-fallback returns scored list" \
+  || fail "embed-fallback failed" "$fb"
+
+# ----------------------------------------------------------------------
+sec "B13 hooks.json wired to B-architecture entries"
+ups=$(python3 -c "import json; print(json.load(open('hooks/hooks.json'))['hooks']['UserPromptSubmit'][0]['hooks'][0]['command'])")
+[[ "$ups" == *"inject-insights.sh"* ]] && ok "UserPromptSubmit → inject-insights.sh" || fail "UserPromptSubmit cmd" "$ups"
+stop=$(python3 -c "import json; print(json.load(open('hooks/hooks.json'))['hooks']['Stop'][0]['hooks'][0]['command'])")
+[[ "$stop" == *"capture-async.sh"* ]] && ok "Stop → capture-async.sh" || fail "Stop cmd" "$stop"
+
+# ----------------------------------------------------------------------
+sec "B14 SKILL.md frontmatter for insight-rate / insight-flush"
+for s in insight-rate insight-flush; do
+  python3 -c "
+import re, sys, pathlib
+text = pathlib.Path('skills/$s/SKILL.md').read_text()
+m = re.match(r'^---\n(.*?)\n---', text, re.DOTALL)
+assert m, 'no frontmatter $s'
+fm = m.group(1)
+for k in ('name','description','argument-hint','allowed-tools'):
+    assert k+':' in fm, 'missing $s: '+k
+" 2>/dev/null && ok "$s SKILL.md frontmatter ok" || fail "$s frontmatter"
+done
+
+# ----------------------------------------------------------------------
 echo
 printf '\n=== TOTAL: %d passed, %d failed ===\n' "$PASS" "$FAIL"
 [[ "$FAIL" == "0" ]]
