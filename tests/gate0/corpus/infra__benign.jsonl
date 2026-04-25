@@ -1,0 +1,200 @@
+{"text": "Day 0: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 1: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 2: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 3: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 4: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 5: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 6: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 7: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 8: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 9: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 10: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 11: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 12: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 13: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 14: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 15: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 16: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 17: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 18: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 19: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 20: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 21: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 22: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 23: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 24: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 25: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 26: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 27: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 28: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 29: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 30: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 31: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 32: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 33: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 34: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 35: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 36: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 37: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 38: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 39: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 40: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 41: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 42: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 43: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 44: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 45: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 46: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 47: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 48: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 49: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 50: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 51: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 52: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 53: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 54: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 55: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 56: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 57: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 58: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 59: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 60: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 61: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 62: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 63: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 64: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 65: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 66: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 67: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 68: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 69: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 70: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 71: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 72: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 73: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 74: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 75: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 76: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 77: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 78: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 79: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 80: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 81: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 82: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 83: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 84: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 85: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 86: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 87: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 88: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 89: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 90: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 91: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 92: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 93: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 94: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 95: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 96: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 97: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 98: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 99: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 100: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 101: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 102: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 103: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 104: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 105: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 106: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 107: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 108: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 109: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 110: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 111: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 112: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 113: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 114: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 115: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 116: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 117: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 118: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 119: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 120: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 121: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 122: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 123: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 124: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 125: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 126: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 127: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 128: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 129: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 130: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 131: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 132: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 133: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 134: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 135: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 136: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 137: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 138: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 139: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 140: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 141: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 142: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 143: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 144: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 145: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 146: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 147: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 148: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 149: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 150: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 151: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 152: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 153: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 154: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 155: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 156: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 157: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 158: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 159: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 160: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 161: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 162: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 163: Load balancer 502s traced back to keepalive idle timeout shorter than upstream.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 164: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 165: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 166: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 167: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 168: AWS Lambda cold start went up after migrating to provided.al2 runtime.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 169: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 170: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 171: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 172: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 173: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 174: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 175: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 176: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 177: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 178: Switched ECR pull through cache to avoid hitting Docker Hub rate limits.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 179: Switched cron job to a Kubernetes CronJob with concurrencyPolicy=Forbid.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 180: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 181: Cilium policy drop misattributed to flannel because of overlapping CIDR ranges.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 182: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 183: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 184: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 185: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 186: Reduced Postgres bloat by re-running VACUUM FULL during the maintenance window.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 187: Terraform plan diverged because the backend lock had a stale lease.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 188: Tweaked HPA stabilization windows to keep replicas from flapping every 30s.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 189: GHA cache restore corrupted the node_modules tree until we set fail-on-cache-miss.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 190: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 191: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 192: Kubernetes pod evicted due to ephemeral storage limits \u2014 bumped the request.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 193: ALB target group health check timed out at 4s; increased threshold for slow start.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 194: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 195: Datadog APM dropped traces because the agent could not resolve the cluster DNS.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 196: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 197: S3 bucket policy denied the deploy role because the action list missed PutObjectAcl.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 198: Helm release stuck in pending-upgrade because the previous CRD bump was rolled back.", "labels": [], "adversarial": false, "bucket": "infra"}
+{"text": "Day 199: Cloudfront invalidations queued because we exceeded 1000 paths in flight.", "labels": [], "adversarial": false, "bucket": "infra"}

@@ -1,0 +1,200 @@
+{"text": "Day 0: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 1: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 2: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 3: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 4: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 5: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 6: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 7: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 8: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 9: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 10: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 11: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 12: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 13: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 14: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 15: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 16: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 17: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 18: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 19: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 20: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 21: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 22: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 23: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 24: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 25: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 26: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 27: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 28: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 29: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 30: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 31: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 32: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 33: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 34: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 35: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 36: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 37: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 38: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 39: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 40: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 41: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 42: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 43: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 44: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 45: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 46: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 47: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 48: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 49: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 50: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 51: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 52: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 53: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 54: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 55: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 56: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 57: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 58: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 59: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 60: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 61: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 62: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 63: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 64: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 65: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 66: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 67: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 68: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 69: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 70: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 71: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 72: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 73: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 74: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 75: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 76: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 77: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 78: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 79: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 80: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 81: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 82: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 83: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 84: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 85: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 86: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 87: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 88: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 89: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 90: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 91: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 92: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 93: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 94: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 95: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 96: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 97: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 98: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 99: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 100: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 101: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 102: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 103: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 104: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 105: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 106: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 107: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 108: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 109: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 110: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 111: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 112: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 113: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 114: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 115: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 116: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 117: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 118: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 119: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 120: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 121: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 122: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 123: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 124: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 125: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 126: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 127: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 128: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 129: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 130: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 131: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 132: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 133: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 134: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 135: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 136: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 137: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 138: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 139: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 140: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 141: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 142: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 143: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 144: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 145: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 146: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 147: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 148: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 149: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 150: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 151: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 152: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 153: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 154: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 155: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 156: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 157: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 158: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 159: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 160: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 161: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 162: Added an aria-label to the icon button so screenreaders can announce it.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 163: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 164: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 165: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 166: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 167: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 168: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 169: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 170: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 171: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 172: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 173: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 174: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 175: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 176: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 177: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 178: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 179: Toast component dispatched a fetch on unmount and the AbortController never fired.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 180: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 181: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 182: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 183: Hydration mismatch on server-rendered date \u2014 used Intl.DateTimeFormat with a fixed locale.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 184: Resolved a focus-trap bug by checking activeElement before re-mounting the dialog.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 185: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 186: Replaced useEffect with useLayoutEffect for scroll restoration.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 187: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 188: Vite dev server crashed when two plugins claimed the same name property.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 189: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 190: Refactored the Vue 3 component to use computed instead of mutating props.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 191: Pinned the WebKit version in playwright config to stabilize tests.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 192: RouteGuard returning a redirect was swallowed by the layout boundary.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 193: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 194: TanStack Query cache key collision caused stale data on tab switch.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 195: Storybook 8 dropped the docs panel renderer we relied on; migrated to CSF3.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 196: Reactivity bug: ref(undefined) on first render lost subsequent updates.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 197: Web vitals INP regressed when a long task ran in the same frame as a click handler.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 198: Tailwind purge stripped a class because dynamic strings were not safelisted.", "labels": [], "adversarial": false, "bucket": "web"}
+{"text": "Day 199: Added a service worker fallback for /api responses to keep the offline demo functional.", "labels": [], "adversarial": false, "bucket": "web"}

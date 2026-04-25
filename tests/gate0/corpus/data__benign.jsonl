@@ -1,0 +1,200 @@
+{"text": "Day 0: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 1: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 2: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 3: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 4: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 5: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 6: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 7: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 8: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 9: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 10: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 11: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 12: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 13: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 14: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 15: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 16: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 17: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 18: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 19: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 20: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 21: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 22: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 23: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 24: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 25: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 26: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 27: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 28: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 29: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 30: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 31: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 32: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 33: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 34: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 35: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 36: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 37: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 38: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 39: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 40: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 41: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 42: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 43: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 44: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 45: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 46: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 47: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 48: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 49: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 50: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 51: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 52: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 53: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 54: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 55: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 56: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 57: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 58: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 59: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 60: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 61: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 62: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 63: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 64: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 65: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 66: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 67: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 68: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 69: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 70: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 71: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 72: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 73: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 74: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 75: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 76: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 77: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 78: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 79: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 80: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 81: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 82: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 83: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 84: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 85: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 86: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 87: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 88: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 89: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 90: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 91: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 92: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 93: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 94: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 95: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 96: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 97: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 98: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 99: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 100: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 101: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 102: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 103: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 104: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 105: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 106: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 107: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 108: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 109: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 110: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 111: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 112: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 113: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 114: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 115: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 116: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 117: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 118: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 119: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 120: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 121: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 122: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 123: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 124: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 125: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 126: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 127: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 128: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 129: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 130: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 131: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 132: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 133: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 134: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 135: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 136: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 137: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 138: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 139: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 140: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 141: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 142: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 143: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 144: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 145: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 146: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 147: dbt incremental model drifted because the merge key wasn't deterministic.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 148: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 149: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 150: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 151: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 152: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 153: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 154: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 155: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 156: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 157: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 158: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 159: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 160: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 161: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 162: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 163: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 164: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 165: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 166: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 167: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 168: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 169: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 170: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 171: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 172: DuckDB read_parquet stalled on tiered S3 storage; switched to Iceberg metadata-only.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 173: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 174: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 175: Athena query failed with HIVE_BAD_DATA on an empty parquet file.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 176: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 177: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 178: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 179: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 180: Pandas to-parquet dropped categorical dtypes; used the pyarrow backend explicitly.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 181: Airflow DAG retried indefinitely after a downstream task hit a non-retriable error.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 182: Pulsar topic compaction stalled on tombstone-heavy keys.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 183: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 184: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 185: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 186: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 187: Looker dashboard slowed because PDT rebuild fired during business hours.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 188: Spark stage failed on shuffle write because executor memory overcommitted.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 189: Snowflake warehouse credit consumption hit threshold during EOM aggregation.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 190: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 191: Materialized view refresh blocked by long-running select on the base table.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 192: Confluent schema registry rejected an Avro change because of a default-less added field.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 193: BigQuery clustering choice gave 12x cost reduction on date-prefix scans.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 194: Pyspark UDF unable to be vectorized because the return type was nested struct.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 195: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 196: Kafka consumer lag spiked when partition assignment moved during rebalance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 197: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 198: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}
+{"text": "Day 199: Iceberg table grew unbounded \u2014 added expire-snapshots to nightly maintenance.", "labels": [], "adversarial": false, "bucket": "data"}

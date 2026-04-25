@@ -1,0 +1,54 @@
+{"text": "Use AKIAEXAMPLEXXXXXXXXXX for the canary deploys.", "labels": [{"start": 4, "end": 25, "reason": "aws_access_key_id"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Old key XXXXXXXXEXAMPLEXXXXXXXXEXAMPLEXXXXXXXXXXXX belongs to alice.", "labels": [{"start": 8, "end": 50, "reason": "aws_secret_shape"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "export GITHUB_TOKEN=ghp_EXAMPLEXXXXXXXXXXXXXXXXX", "labels": [{"start": 20, "end": 48, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "send to slack with xoxb-EXAMPLE-XXXXXXXXXXXXXXXXX", "labels": [{"start": 19, "end": 49, "reason": "slack_token"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "OPENAI_API_KEY=sk-proj-EXAMPLEXXXXXXXXXXXXXXXXXX", "labels": [{"start": 15, "end": 48, "reason": "openai_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Anthropic key sk-ant-api03-EXAMPLEXXXXXXXXXXXXXXX", "labels": [{"start": 14, "end": 49, "reason": "anthropic_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "My GCP key was AIzaEXAMPLEXXXXXXXXXXXXXXXXXXXXXXXXXXXX and I rotated it", "labels": [{"start": 15, "end": 54, "reason": "gcp_api_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "HEAD JWT eyJEXAMPLEAAAAAA.eyJEXAMPLEBBBBB.SIGEXAMPLECCCCC", "labels": [{"start": 9, "end": 57, "reason": "jwt"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Authorization: Bearer EXAMPLEPLACEHOLDERTOKEN", "labels": [{"start": 22, "end": 45, "reason": "bearer_token"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "ssh -i /Users/founder/.ssh/id_rsa user@host", "labels": [{"start": 7, "end": 33, "reason": "macos_home_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "/home/alice/.aws/credentials had the wrong region", "labels": [{"start": 0, "end": 28, "reason": "linux_home_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "private dir was /private/var/folders/abc and we cleaned it up", "labels": [{"start": 16, "end": 40, "reason": "private_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "contact founder@example.com if blocked", "labels": [{"start": 8, "end": 27, "reason": "email"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Stripe rk_live_EXAMPLEPLACEHOLDERAAAAA was scoped to read-only.", "labels": [{"start": 7, "end": 38, "reason": "stripe_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Datadog API key = EXAMPLEXXXXXXXXXXXXXXXXXXXXXXXX", "labels": [{"start": 18, "end": 49, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "uuid 00000000-0000-4000-8000-000000000000 from the row", "labels": [{"start": 5, "end": 41, "reason": "uuid"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Redis password=examplePlaceholderXX in the chart", "labels": [{"start": 15, "end": 35, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "our private CIDR was 10.42.13.7 last quarter", "labels": [{"start": 21, "end": 31, "reason": "ip_address"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "the staging IP 198.51.100.42 was rotated yesterday", "labels": [{"start": 15, "end": 28, "reason": "ip_address"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Anthropic console secret sk-ant-orgkey-exampleplaceholderxxxx", "labels": [{"start": 25, "end": 61, "reason": "anthropic_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "OpenAI billing key sk-EXAMPLEPLACEHOLDERAAAAAAAAAA was rotated", "labels": [{"start": 19, "end": 50, "reason": "openai_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "We need to rotate ghs_EXAMPLEPLACEHOLDERAAAAAAA", "labels": [{"start": 18, "end": 47, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "snowflake password ExamplePlaceholderTopSecret", "labels": [{"start": 19, "end": 46, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "PASSWORD=example-placeholder-not-real-12345", "labels": [{"start": 9, "end": 43, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "API_KEY: 'examplePlaceholderNotRealAA'", "labels": [{"start": 10, "end": 37, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "token = examplePlaceholder_TOKEN-1234567890", "labels": [{"start": 8, "end": 43, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "internal slack hook xoxp-EXAMPLE-XXXXXXX-XXXXXXX-placeholder", "labels": [{"start": 20, "end": 60, "reason": "slack_token"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "rotate xoxa-EXAMPLE-placeholderxx", "labels": [{"start": 7, "end": 33, "reason": "slack_token"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Customer record contact phone +1-415-555-2671", "labels": [{"start": 30, "end": 45, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Internal admin email pat@megacorp.local", "labels": [{"start": 21, "end": 39, "reason": "email"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "BEGIN PRIVATE KEY block: -----BEGIN OPENSSH PRIVATE KEY-----", "labels": [{"start": 25, "end": 60, "reason": "ssh_priv_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "home dir /Users/m1/Documents/secrets was synced", "labels": [{"start": 9, "end": 36, "reason": "macos_home_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "config file at /home/bob/.kube/config was missing context", "labels": [{"start": 15, "end": 37, "reason": "linux_home_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "paste of /private/etc/master.passwd showed root only", "labels": [{"start": 9, "end": 35, "reason": "private_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "my token github_pat_EXAMPLEPLACEHOLDERXXXXX is the org one", "labels": [{"start": 9, "end": 43, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "legacy token gho_EXAMPLEPLACEHOLDERXXXXX (read only)", "labels": [{"start": 13, "end": 40, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "ENV BACKEND_PASSWORD='examplePlaceholderXX'", "labels": [{"start": 22, "end": 42, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "AUTH_TOKEN=examplePlaceholderXXXXXXXXXXXXXXXXX", "labels": [{"start": 11, "end": 46, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Stripe pk_test_EXAMPLEPLACEHOLDERXXXXXX", "labels": [{"start": 7, "end": 39, "reason": "stripe_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "rotated 192.168.1.250 last sprint", "labels": [{"start": 8, "end": 21, "reason": "ip_address"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "trace id EXAMPLEPLACEHOLDERAAAAAAAAAAAAAAAAAAAAAA", "labels": [{"start": 9, "end": 49, "reason": "aws_secret_shape"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "config hash sha256:EXAMPLEPLACEHOLDERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "labels": [{"start": 19, "end": 67, "reason": "aws_secret_shape"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "ASIA temp credential ASIAEXAMPLEXXXXXXXXX", "labels": [{"start": 21, "end": 41, "reason": "aws_access_key_id"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "AIDA static identity AIDAEXAMPLEXXXXXXXXX", "labels": [{"start": 21, "end": 41, "reason": "aws_access_key_id"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "GIT_TOKEN=ghr_EXAMPLEPLACEHOLDERXXXXXX", "labels": [{"start": 10, "end": 38, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "legacy key sk-test-EXAMPLEPLACEHOLDERAAAA", "labels": [{"start": 11, "end": 41, "reason": "openai_key"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "TWILIO secret = SKEXAMPLEPLACEHOLDERAAAAAAAAAAAAAA", "labels": [{"start": 16, "end": 50, "reason": "aws_secret_shape"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Datadog DD_API_KEY=EXAMPLEPLACEHOLDERAAAAAAAAAAAAAAAA", "labels": [{"start": 19, "end": 53, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "client cert at /Users/m1/projects/secret.pem was rotated", "labels": [{"start": 15, "end": 44, "reason": "macos_home_path"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "Phone: +44-20-7946-0958 reach out for the audit", "labels": [{"start": 7, "end": 23, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "VERSION=ghs_EXAMPLEPLACEHOLDERBBBBBBBBBBBBBB", "labels": [{"start": 8, "end": 44, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "backend password=examplePlaceholderXXXXXXX", "labels": [{"start": 17, "end": 42, "reason": "named_secret"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "rotated ghu_EXAMPLEPLACEHOLDERCCCCCCCCCCCCCC", "labels": [{"start": 8, "end": 44, "reason": "github_pat"}], "adversarial": true, "bucket": "adversarial"}
+{"text": "OAUTH_CLIENT_SECRET=EXAMPLEPLACEHOLDERDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD", "labels": [{"start": 20, "end": 69, "reason": "aws_secret_shape"}], "adversarial": true, "bucket": "adversarial"}
