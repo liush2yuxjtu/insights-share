@@ -11,7 +11,7 @@ Team insight sharing plugin for Claude Code **instances** (not the human users).
 | **Statusline** | Shows total insight count, count relevant to the current session, NEW badge, and server health. A glanceable "team knowledge presence" indicator. |
 | **`UserPromptSubmit` hook** | Forces every prompt to first query the insights server for relevant cards and inject them as system context. New Claude instances cannot miss a relevant prior lesson. |
 | **`SessionStart` hook** | Idempotently appends an install marker block to the project `CLAUDE.md` so any future collaborator's Claude instance is forced to install this plugin. Append-only — never rewrites. |
-| **Skills** | `/insight-add` (manual write), `/insight-search` (manual query), `/insight-install` (manually trigger CLAUDE.md append), `/insight-server` (manage self-host server stub). |
+| **Skills** | Manual write/search, promotion, lineage, buffered listing, conflict detect/resolve, notifications, card view, install wiring, server ops, rate, and flush commands. |
 
 ## Architecture
 
@@ -21,7 +21,7 @@ filters PII through a two-layer pipeline, and shares them via a per-repo
 GitHub mirror (`<owner>/<repo>-insights`).
 
 - **Hot path** = local-cache retrieval, ≤500ms p95, NO git fetch
-  (`scripts/inject-insights.sh` → `_inject_hot_path.py`).
+  (`scripts/inject-insights.sh`).
 - **Capture path** = Stop-hook silent buffer + 30-min idle async finalize
   (`scripts/capture-async.sh` → `finalize-buffer.sh`).
 - **Privacy** = Layer 1 regex (`_filter_pii.py`, 15 pattern families) +
@@ -72,7 +72,7 @@ claude plugin enable  insights-share@insights-share
 # 3. verify
 claude plugin list | grep insights-share         # status: ✔ enabled
 claudefast -p 'list slash commands containing insight'
-# → /insight-add /insight-search /insight-install /insight-server
+# → /insight-add /insight-search /insight-promote /insight-log /insight-install /insight-server /insight-help
 ```
 
 After install, hooks register automatically.
@@ -82,7 +82,7 @@ After install, hooks register automatically.
 1. **Open any new Claude Code session.** The `SessionStart` hook prints a
    one-time welcome banner that includes:
    - the absolute path to **this very README** on disk,
-   - the five slash commands you now have,
+   - the sixteen slash commands you now have,
    - the three hooks already wired,
    - a 3-step quickstart.
 
@@ -110,7 +110,7 @@ After install, hooks register automatically.
    ```bash
    claude plugin list | grep insights-share         # status: ✔ enabled
    claudefast -p 'list slash commands containing insight'
-   # → /insight-add /insight-search /insight-install /insight-server /insight-help
+   # → /insight-add /insight-search /insight-promote /insight-log /insight-edit /insight-delete /insight-list /insight-conflict /insight-resolve /insight-notifications /insight-view /insight-install /insight-server /insight-help /insight-rate /insight-flush
    ```
 
 5. **First real use:**
@@ -185,28 +185,38 @@ Or rely on the per-project setting auto-suggested by `/insight-install`.
 insights-share/
 ├── .claude-plugin/{plugin.json,marketplace.json}
 ├── hooks/hooks.json                  # SessionStart + UserPromptSubmit + Stop
-├── skills/                           # 7 SKILL.md (add/search/install/server/help/rate/flush)
+├── skills/                           # 16 SKILL.md (add/search/promote/log/edit/delete/list/conflict/resolve/notifications/view/install/server/help/rate/flush)
 ├── scripts/
 │   ├── inject-insights.sh            # UserPromptSubmit hot path (B-arch)
-│   ├── _inject_hot_path.py           # single-process retrieval body
+│   ├── _inject_hot_path.py           # legacy Python retrieval body
 │   ├── capture-async.sh              # Stop hook silent buffer
 │   ├── finalize-buffer.sh            # async filter + upload
 │   ├── filter-pii.sh + _filter_pii.py# Layer 1 regex
 │   ├── filter-haiku.sh               # Layer 2 haiku redact + topic
 │   ├── sync-mirror.sh                # GitHub mirror push/pull
 │   ├── pat-auth.sh                   # per-repo PAT lifecycle (chmod 600)
+│   ├── add-insight.sh                # /insight-add PII + rate-limit backing
 │   ├── canonical-remote.sh           # HTTPS↔SSH normalisation
 │   ├── cold-start.sh                 # lazy mirror discovery + 30min bg-sync
 │   ├── retrieve-local.sh             # legacy retrieval entry (used by tests)
 │   ├── embed-fallback.py             # sentence-transformers + TF-IDF fallback
 │   ├── rate-lesson.sh                # /insight-rate backing
 │   ├── flush-buffer.sh               # /insight-flush backing
+│   ├── promote-insights.sh           # /insight-promote backing
+│   ├── insight-log.sh                # /insight-log backing
+│   ├── edit-insight.sh               # /insight-edit backing
+│   ├── delete-insight.sh             # /insight-delete backing
+│   ├── list-insights.sh              # /insight-list backing
+│   ├── conflict-insights.sh          # /insight-conflict backing
+│   ├── resolve-conflict.sh           # /insight-resolve backing
+│   ├── notifications.sh              # /insight-notifications backing
+│   ├── view-insight.sh               # /insight-view backing
 │   ├── buffer-recover.sh             # crash recovery
 │   ├── append-claude-md.sh           # SessionStart marker + bg kickoff
 │   ├── statusline.sh                 # team knowledge presence
 │   └── insights-client.sh            # legacy HTTP client (kept for tests)
 ├── tests/
-│   ├── run.sh                        # 92 assertions (71 legacy + 21 B-pipeline)
+│   ├── run.sh                        # 114 assertions (legacy + B-pipeline + promotion + add/edit/delete safety)
 │   └── gate0/{run-gate0.sh,seed-corpus.py,corpus/}
 ├── docs/B-scope-impl.md              # design ↔ impl trace
 ├── references/{server-protocol.md,self-host.md}

@@ -1,6 +1,6 @@
 ---
 name: insight-help
-description: Use this skill when the user has just installed the insights-share plugin and asks any onboarding question — "what next", "where is the README", "how do I use this plugin", "/insight-help", "show me the insights-share quickstart", "what does this plugin do for me". The skill prints a compact onboarding card pointing to the README on disk, the four slash commands, statusline wiring, and the optional self-host stub server.
+description: Use this skill when the user has just installed the insights-share plugin and asks any onboarding question — "what next", "where is the README", "how do I use this plugin", "/insight-help", "show me the insights-share quickstart", "what does this plugin do for me". The skill prints a compact onboarding card pointing to the README on disk, the sixteen slash commands, statusline wiring, and the optional self-host stub server.
 argument-hint: "[optional: 'verbose' to also print env vars + server protocol pointers]"
 allowed-tools: Bash, Read
 ---
@@ -41,9 +41,20 @@ is correct on this machine.
 🛠 Slash commands you now have:
    /insight-add      Capture one structured lesson learned and POST it.
    /insight-search   Look up team insights by keyword before risky changes.
+   /insight-promote  Promote repeated cross-project patterns to team memory.
+   /insight-log      Show source lineage for one insight.
+   /insight-edit     Edit one field on an existing insight card.
+   /insight-delete   Delete one insight card by id.
+   /insight-list     List server or buffered offline insights.
+   /insight-conflict Detect or inspect cross-project tag conflicts.
+   /insight-resolve  Resolve a stored insight conflict.
+   /insight-notifications  Show insight notifications.
+   /insight-view     Fetch one insight card by id.
    /insight-install  Append the force-install marker to a project CLAUDE.md.
    /insight-server   Start/stop/ping/nightly the self-host stub server.
    /insight-help     This card.
+   /insight-rate     Rate an injected lesson as good/bad/irrelevant.
+   /insight-flush    Force-finalize the current session insight buffer.
 
 🪝 Hooks already active (no action needed):
    SessionStart      Idempotent CLAUDE.md force-install marker append.
@@ -111,4 +122,4 @@ is correct on this machine.
   question), don't reprint the whole card.
 - Never invent paths. If `PLUGIN_DIR` cannot be resolved, say so plainly
   and suggest `claude plugin list | grep insights-share`.
-- Do not fabricate slash commands beyond the five real ones above.
+- Do not fabricate slash commands beyond the sixteen real ones above.
