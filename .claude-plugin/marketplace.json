@@ -1,0 +1,20 @@
+{
+  "name": "insights-share",
+  "owner": {
+    "name": "liush2yuxjtu",
+    "url": "https://github.com/liush2yuxjtu"
+  },
+  "metadata": {
+    "description": "Single-plugin self-marketplace. The repo IS the marketplace; the same repo IS the plugin (root contains both .claude-plugin/marketplace.json and .claude-plugin/plugin.json).",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "insights-share",
+      "description": "Team-wide insight sharing for Claude Code instances. Auto-injects relevant prior lessons into every prompt, ships a beautiful statusline, and force-installs itself in collaborator repos via append-only CLAUDE.md.",
+      "category": "collaboration",
+      "homepage": "https://github.com/liush2yuxjtu/insights-share",
+      "source": "./"
+    }
+  ]
+}

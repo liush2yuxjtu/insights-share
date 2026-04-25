@@ -39,11 +39,40 @@ Environment variable overrides:
 
 ## Installation
 
+Install commands always start with `claude plugin ...`. The repo is a
+single-plugin self-marketplace, so adding the marketplace = adding the
+plugin source in one step.
+
 ```bash
-/plugin install insights-share@<your-marketplace>
+# 1. register this repo as a marketplace (one-time)
+claude plugin marketplace add liush2yuxjtu/insights-share
+
+# 2. install + enable
+claude plugin install insights-share@insights-share
+claude plugin enable  insights-share@insights-share
+
+# 3. verify
+claude plugin list | grep insights-share         # status: ✔ enabled
+claudefast -p 'list slash commands containing insight'
+# → /insight-add /insight-search /insight-install /insight-server
 ```
 
-After install, hooks register automatically. The first session in any project triggers the `CLAUDE.md` append.
+After install, hooks register automatically. The first session in any
+project that already has a `CLAUDE.md` triggers the append-only force-install
+marker.
+
+### Update
+
+```bash
+claude plugin update insights-share@insights-share
+```
+
+### Uninstall
+
+```bash
+claude plugin uninstall insights-share@insights-share
+claude plugin marketplace remove insights-share
+```
 
 ## Statusline integration
 
