@@ -13,10 +13,28 @@ Team insight sharing plugin for Claude Code **instances** (not the human users).
 | **`SessionStart` hook** | Idempotently appends an install marker block to the project `CLAUDE.md` so any future collaborator's Claude instance is forced to install this plugin. Append-only — never rewrites. |
 | **Skills** | `/insight-add` (manual write), `/insight-search` (manual query), `/insight-install` (manually trigger CLAUDE.md append), `/insight-server` (manage self-host server stub). |
 
-## Architecture (current scope)
+## Architecture
 
-- **Client**: this plugin. Speaks HTTP to an insights server. Caches results locally at `~/.claude/insights/cache.json`.
-- **Server**: contract documented in [`references/server-protocol.md`](references/server-protocol.md). Self-host stub script provided in [`examples/server-stub.py`](examples/server-stub.py). Production server implementation **deferred** per project decision.
+`v0.1` is built to **Approach B** of the canonical design — a repo-scoped
+precedent router that captures Claude Code session lessons silently,
+filters PII through a two-layer pipeline, and shares them via a per-repo
+GitHub mirror (`<owner>/<repo>-insights`).
+
+- **Hot path** = local-cache retrieval, ≤500ms p95, NO git fetch
+  (`scripts/inject-insights.sh` → `_inject_hot_path.py`).
+- **Capture path** = Stop-hook silent buffer + 30-min idle async finalize
+  (`scripts/capture-async.sh` → `finalize-buffer.sh`).
+- **Privacy** = Layer 1 regex (`_filter_pii.py`, 15 pattern families) +
+  Layer 2 haiku (`filter-haiku.sh`, 2s timeout, drop on conf<0.8).
+- **Storage** = GitHub mirror repo, plain JSONL, per-repo PAT
+  (`sync-mirror.sh`, `pat-auth.sh`).
+- **Legacy HTTP server stub** still ships for regression tests
+  (`examples/server-stub.py`).
+
+Full B-feature ↔ file map: see [`docs/B-scope-impl.md`](docs/B-scope-impl.md).
+
+Gate-0 PII benchmark: `bash tests/gate0/run-gate0.sh --strict`
+(currently 654 turns / 4 buckets / 54 adversarial / 0 leaks / 0% FP).
 
 ## Configuration
 
@@ -165,10 +183,32 @@ Or rely on the per-project setting auto-suggested by `/insight-install`.
 
 ```
 insights-share/
-├── .claude-plugin/plugin.json
-├── hooks/hooks.json
-├── skills/{insight-add,insight-search,insight-install,insight-server}/SKILL.md
-├── scripts/{statusline.sh,fetch-insights.sh,append-claude-md.sh,insights-client.sh}
+├── .claude-plugin/{plugin.json,marketplace.json}
+├── hooks/hooks.json                  # SessionStart + UserPromptSubmit + Stop
+├── skills/                           # 7 SKILL.md (add/search/install/server/help/rate/flush)
+├── scripts/
+│   ├── inject-insights.sh            # UserPromptSubmit hot path (B-arch)
+│   ├── _inject_hot_path.py           # single-process retrieval body
+│   ├── capture-async.sh              # Stop hook silent buffer
+│   ├── finalize-buffer.sh            # async filter + upload
+│   ├── filter-pii.sh + _filter_pii.py# Layer 1 regex
+│   ├── filter-haiku.sh               # Layer 2 haiku redact + topic
+│   ├── sync-mirror.sh                # GitHub mirror push/pull
+│   ├── pat-auth.sh                   # per-repo PAT lifecycle (chmod 600)
+│   ├── canonical-remote.sh           # HTTPS↔SSH normalisation
+│   ├── cold-start.sh                 # lazy mirror discovery + 30min bg-sync
+│   ├── retrieve-local.sh             # legacy retrieval entry (used by tests)
+│   ├── embed-fallback.py             # sentence-transformers + TF-IDF fallback
+│   ├── rate-lesson.sh                # /insight-rate backing
+│   ├── flush-buffer.sh               # /insight-flush backing
+│   ├── buffer-recover.sh             # crash recovery
+│   ├── append-claude-md.sh           # SessionStart marker + bg kickoff
+│   ├── statusline.sh                 # team knowledge presence
+│   └── insights-client.sh            # legacy HTTP client (kept for tests)
+├── tests/
+│   ├── run.sh                        # 92 assertions (71 legacy + 21 B-pipeline)
+│   └── gate0/{run-gate0.sh,seed-corpus.py,corpus/}
+├── docs/B-scope-impl.md              # design ↔ impl trace
 ├── references/{server-protocol.md,self-host.md}
 └── examples/{insight.example.json,server-stub.py}
 ```
