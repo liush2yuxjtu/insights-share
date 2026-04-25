@@ -1,0 +1,10 @@
+.claude/*.local.md
+.claude/insights/cache.json
+.DS_Store
+node_modules/
+*.log
+.env
+.env.local
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -1,0 +1,18 @@
+{
+  "name": "insights-share",
+  "version": "0.1.0",
+  "description": "Team-wide insight sharing for Claude instances. New Claude collaborators inherit the team's lessons learned and avoid repeating known traps. Ships a statusline frontend, a hook that auto-injects relevant insights into every prompt, and a self-host server contract (backend implementation deferred).",
+  "author": {
+    "name": "V4teamBrain",
+    "email": "girardeauwoodcox@gmail.com"
+  },
+  "homepage": "https://github.com/V4teamBrain/insights-share",
+  "license": "MIT",
+  "keywords": [
+    "team-knowledge",
+    "insights",
+    "claude-instances",
+    "collaboration",
+    "statusline"
+  ]
+}

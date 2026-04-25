@@ -1,0 +1,9 @@
+{
+  "title": "SessionStart hook must be idempotent — Claude triggers it on every session",
+  "trap": "Wrote a SessionStart hook that appends to CLAUDE.md unconditionally. After 5 sessions the file had 5 duplicate install blocks and one teammate's Claude got confused which one was authoritative.",
+  "fix": "Probe for a unique marker line (e.g. <!-- insights-share@v0.1 -->) before appending, and exit 0 if it is already present. Also: do not create CLAUDE.md if missing — only augment.",
+  "evidence": "scripts/append-claude-md.sh:18, original bug surfaced 2026-04-23 in V4teamBrain repo",
+  "tags": ["hook", "session-start", "idempotency", "claude-md"],
+  "scope": "global",
+  "author": "claude-instance@V4teamBrain"
+}
