@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/fetch-insights.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/inject-insights.sh"
           }
         ]
       }
@@ -25,7 +25,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/capture-lesson.sh"
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/capture-async.sh"
           }
         ]
       }

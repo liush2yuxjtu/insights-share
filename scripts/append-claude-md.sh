@@ -22,6 +22,13 @@ try: print(json.load(sys.stdin).get("cwd",""))
 except Exception: print("")' 2>/dev/null || true)
 [[ -z "$cwd" ]] && cwd="$PWD"
 
+# Kick off mirror discovery + crash recovery in background (one-time per
+# session). Hot-path UserPromptSubmit hook stays clean of these calls.
+nohup bash "${PLUGIN_ROOT}/scripts/cold-start.sh" "$cwd" >/dev/null 2>&1 &
+disown 2>/dev/null || true
+nohup bash "${PLUGIN_ROOT}/scripts/buffer-recover.sh" >/dev/null 2>&1 &
+disown 2>/dev/null || true
+
 # --- one-time welcome banner ----------------------------------------
 if [[ ! -f "$WELCOME_MARKER" ]]; then
   mkdir -p "$(dirname "$WELCOME_MARKER")" 2>/dev/null || true
