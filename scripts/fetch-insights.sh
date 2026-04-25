@@ -36,63 +36,45 @@ keywords=$(printf '%s' "$prompt" | tr '[:upper:]' '[:lower:]' \
 
 [[ -z "${keywords// }" ]] && exit 0
 
-# Parallel-fetch all keyword queries — typical hooks complete in ~1 RTT.
-tmpdir=$(mktemp -d)
-trap 'rm -rf "$tmpdir"' EXIT
+# One list/cache read is faster and more stable than spawning one client per
+# keyword, especially against the local stub where each search reloads JSON.
+cards_json=$(bash "$CLIENT" list 2>/dev/null || echo "[]")
 
-search_pids=()
-i=0
-for q in $keywords; do
-  i=$((i + 1))
-  ( bash "$CLIENT" search "$q" > "${tmpdir}/${i}.json" 2>/dev/null || echo "[]" > "${tmpdir}/${i}.json" ) &
-  search_pids+=($!)
-done
-for pid in "${search_pids[@]}"; do wait "$pid"; done
-
-# Merge + dedup by (id, title). Cap at 5.
-hits_json=$(TMPDIR_FOR_HITS="$tmpdir" python3 -c '
-import glob, json, os
-out = []
-seen = set()
-for path in sorted(glob.glob(os.path.join(os.environ["TMPDIR_FOR_HITS"], "*.json"))):
-    try:
-        with open(path) as f:
-            cards = json.load(f)
-    except Exception:
-        continue
-    if not isinstance(cards, list):
-        continue
-    for c in cards:
-        if not isinstance(c, dict):
-            continue
-        k = (c.get("id"), (c.get("title") or "").strip().lower())
-        if k in seen:
-            continue
-        seen.add(k)
-        out.append(c)
-        if len(out) >= 5:
-            break
-    if len(out) >= 5:
-        break
-print(json.dumps(out))
-')
-
-count=$(printf '%s' "$hits_json" | python3 -c 'import sys,json
-try: print(len(json.load(sys.stdin)))
-except Exception: print(0)')
-
-[[ "$count" -eq 0 ]] && exit 0
-
-# Render as a concise context block.
-printf '\n<insights-share>\n'
-printf 'The following %s team insight(s) appear relevant to this prompt. Treat them as prior lessons learned by other Claude instances on this team. Do not repeat the mistakes they describe.\n\n' "$count"
-printf '%s' "$hits_json" | python3 -c '
-import json, sys, textwrap
+printf '%s' "$cards_json" | INSIGHTS_KEYWORDS="$keywords" python3 -c '
+import json, os, sys, textwrap
+keywords = [k for k in (os.environ.get("INSIGHTS_KEYWORDS") or "").split() if k]
 try:
     data = json.load(sys.stdin)
 except Exception:
     data = []
-for i, c in enumerate(data, 1):
+if not isinstance(data, list) or not keywords:
+    sys.exit(0)
+out = []
+seen = set()
+for c in data:
+    if not isinstance(c, dict):
+        continue
+    hay = json.dumps(c, ensure_ascii=False).lower()
+    if not any(k in hay for k in keywords):
+        continue
+    key = (c.get("id"), (c.get("title") or "").strip().lower())
+    if key in seen:
+        continue
+    seen.add(key)
+    out.append(c)
+    if len(out) >= 5:
+        break
+if not out:
+    sys.exit(0)
+print()
+print("<insights-share>")
+print(
+    f"The following {len(out)} team insight(s) appear relevant to this prompt. "
+    "Treat them as prior lessons learned by other Claude instances on this team. "
+    "Do not repeat the mistakes they describe."
+)
+print()
+for i, c in enumerate(out, 1):
     title  = c.get("title", "(untitled)")
     trap   = c.get("trap", "") or c.get("problem", "")
     fix    = c.get("fix", "")  or c.get("solution", "")
@@ -104,5 +86,5 @@ for i, c in enumerate(data, 1):
     if fix:
         print(textwrap.fill(f"    fix:  {fix}",  width=100, subsequent_indent="          "))
     print()
+print("</insights-share>")
 '
-printf '</insights-share>\n'
