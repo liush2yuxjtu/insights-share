@@ -48,15 +48,20 @@ Constraints:
 1. If `$ARGUMENTS` is set, treat it as the proposed title; otherwise infer one from recent context.
 2. Draft the card. Show it to the user in a fenced JSON block.
 3. Ask the user to confirm or edit. **Do not skip this step**, even if you are highly confident — the human knows the team taxonomy.
-4. On confirmation, write the card to a temp file then POST it. Substitute the literal confirmed JSON in place of the `{...}` placeholder below — do not emit the placeholder verbatim:
+4. On confirmation, write the card to a temp file then call the add script.
+   It applies Layer-1 PII redaction and the 10/minute local rate limit before
+   POSTing. Substitute the literal confirmed JSON in place of the `{...}`
+   placeholder below — do not emit the placeholder verbatim:
    ```bash
    tmp=$(mktemp)
    cat > "$tmp" <<'JSON'
    {"title":"...","trap":"...","fix":"...","evidence":"...","tags":[...],"scope":"project","author":"..."}
    JSON
-   bash "${CLAUDE_PLUGIN_ROOT}/scripts/insights-client.sh" create "$tmp"
+   bash "${CLAUDE_PLUGIN_ROOT}/scripts/add-insight.sh" "$tmp"
    ```
-5. Report the server response (id, url) back to the user. If the server is offline, save the card to `~/.claude/insights/outbox/<timestamp>.json` and tell the user it will be flushed on next sync.
+5. Report the server response (id, url) back to the user. If the server is
+   offline, the script saves the card to `~/.claude/insights/outbox/`. If the
+   script returns `rate_limited:true`, tell the user to retry after the window.
 
 ## Anti-patterns
 
