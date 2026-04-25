@@ -57,9 +57,52 @@ claudefast -p 'list slash commands containing insight'
 # → /insight-add /insight-search /insight-install /insight-server
 ```
 
-After install, hooks register automatically. The first session in any
-project that already has a `CLAUDE.md` triggers the append-only force-install
-marker.
+After install, hooks register automatically.
+
+### After install — what next?
+
+1. **Open any new Claude Code session.** The `SessionStart` hook prints a
+   one-time welcome banner that includes:
+   - the absolute path to **this very README** on disk,
+   - the five slash commands you now have,
+   - the three hooks already wired,
+   - a 3-step quickstart.
+
+   The banner only fires on the first session post-install (gated by
+   `~/.claude/insights/.welcomed`). Delete that file to see it again.
+
+2. **Run `/insight-help`** at any time to reprint the onboarding card.
+
+3. **Read the README on disk.** The plugin cache copy lives at:
+
+   ```
+   ~/.claude/plugins/cache/insights-share/insights-share/<version>/README.md
+   ```
+
+   Or use:
+
+   ```bash
+   PLUGIN_DIR=$(claude plugin list \
+     | awk '/insights-share@insights-share/{found=1} found && /Path/{print $NF; exit}')
+   cat "$PLUGIN_DIR/README.md" | less
+   ```
+
+4. **Verify install** (everything below should be true):
+
+   ```bash
+   claude plugin list | grep insights-share         # status: ✔ enabled
+   claudefast -p 'list slash commands containing insight'
+   # → /insight-add /insight-search /insight-install /insight-server /insight-help
+   ```
+
+5. **First real use:**
+   - Run `/insight-search <keyword>` before any non-trivial change.
+   - Run `/insight-add` the first time you spend >10 min on a non-obvious bug.
+   - Run `/insight-install` in any teammate-shared repo so their Claude
+     instances inherit the same insights.
+
+The first session inside any project that already has a `CLAUDE.md`
+triggers the append-only force-install marker block.
 
 ### Update
 
