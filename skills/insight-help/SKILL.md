@@ -66,6 +66,11 @@ is correct on this machine.
        { "statusLine": { "type": "command",
                          "command": "${CLAUDE_PLUGIN_ROOT}/scripts/statusline.sh" } }
 
+📈 Gate 1 office-hours loop:
+   /insight-search <topic>
+   /insight-add
+   /insight-rate <lesson-id> <good|bad|irrelevant> [reason]
+
 🧪 Try it now (optional, runs the self-host stub):
    make -C <PLUGIN_DIR> stub
    bash <PLUGIN_DIR>/scripts/insights-client.sh ping
@@ -74,7 +79,9 @@ is correct on this machine.
 📎 Next steps:
    1. Run /insight-search before any non-trivial change.
    2. Run /insight-add the first time you spend >10 min on a non-obvious bug.
-   3. Run /insight-install in any teammate-shared repo to onboard their
+   3. Use /insight-rate during Gate 1 when a retrieved lesson was good, bad,
+      or irrelevant for the task.
+   4. Run /insight-install in any teammate-shared repo to onboard their
       Claude instances automatically.
 ```
 

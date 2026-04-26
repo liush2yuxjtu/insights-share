@@ -49,7 +49,7 @@ step "prompt installs only through claude plugin commands"
 contains "$PROMPT_FILE" "claude plugin marketplace add liush2yuxjtu/insights-share" "marketplace add command present"
 contains "$PROMPT_FILE" "claude plugin install insights-share@insights-share" "install command present"
 contains "$PROMPT_FILE" "claude plugin enable insights-share@insights-share" "enable command present"
-if grep -Eq '(^|[[:space:]])/plugin[[:space:]]+install|(^|[[:space:]])install[[:space:]]+insights-share@' "$PROMPT_FILE"; then
+if grep -Eq '(^|[[:space:]])/plugin[[:space:]]+install|^[[:space:]]*install[[:space:]]+insights-share@' "$PROMPT_FILE"; then
   ko "prompt contains forbidden non-claude-plugin install wording"
 else
   ok "prompt avoids slash-command or bare install instructions"

@@ -67,15 +67,45 @@ claude plugin marketplace add liush2yuxjtu/insights-share
 
 # 2. install + enable
 claude plugin install insights-share@insights-share
-claude plugin enable  insights-share@insights-share
+claude plugin enable insights-share@insights-share
 
 # 3. verify
 claude plugin list | grep insights-share         # status: ✔ enabled
 claudefast -p 'list slash commands containing insight'
-# → /insight-add /insight-search /insight-promote /insight-log /insight-install /insight-server /insight-help
+# → /insight-add /insight-search /insight-promote /insight-log /insight-edit /insight-delete /insight-list /insight-conflict /insight-resolve /insight-notifications /insight-view /insight-install /insight-server /insight-help /insight-rate /insight-flush
 ```
 
 After install, hooks register automatically.
+
+### Copy-paste install prompt for Claude Code
+
+Copy everything between the markers below into a fresh Claude Code session
+when you want Claude to install this plugin for its user-level runtime.
+
+<!-- zero-start-claude-install-prompt:start -->
+You are bootstrapping the `insights-share` Claude Code plugin for this user.
+
+Run only installation commands that start with `claude plugin ...`.
+
+```bash
+claude plugin marketplace add liush2yuxjtu/insights-share
+claude plugin install insights-share@insights-share
+claude plugin enable insights-share@insights-share
+claude plugin list | grep insights-share
+```
+
+After the commands finish, tell me:
+
+- Open a fresh Claude Code session so skills and hooks are reloaded.
+- In that fresh Claude Code session, run `/insight-help`.
+- Confirm the statusline setup snippet before changing user settings.
+- For Gate 1 office-hours usage, start with `/insight-search <topic>`,
+  record durable lessons with `/insight-add`, and rate retrieved lessons
+  with `/insight-rate <lesson-id> good|bad|irrelevant`.
+
+Do not use slash-command install syntax. Do not claim this already-running
+Claude Code process can see newly installed skills before a fresh session.
+<!-- zero-start-claude-install-prompt:end -->
 
 ### After install — what next?
 
@@ -116,6 +146,9 @@ After install, hooks register automatically.
 5. **First real use:**
    - Run `/insight-search <keyword>` before any non-trivial change.
    - Run `/insight-add` the first time you spend >10 min on a non-obvious bug.
+   - During Gate 1 office-hours dogfooding, run
+     `/insight-rate <lesson-id> good|bad|irrelevant` when an injected lesson
+     helped, hurt, or missed the task.
    - Run `/insight-install` in any teammate-shared repo so their Claude
      instances inherit the same insights.
 

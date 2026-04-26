@@ -66,10 +66,20 @@ Hooks already wired (no action needed):
   UserPromptSubmit   Auto-inject relevant insights every prompt.
   Stop               Nudge to record a lesson when one is detected.
 
+Statusline:
+  Add this after confirming user settings changes:
+  { "statusLine": { "type": "command",
+                    "command": "${CLAUDE_PLUGIN_ROOT}/scripts/statusline.sh" } }
+
+Gate 1 office-hours loop:
+  1. Run /insight-search <topic> before non-trivial changes.
+  2. Run /insight-add when a lesson should become reusable team memory.
+  3. Run /insight-rate <lesson-id> good when a retrieved lesson helps.
+
 Next:
   1. Run /insight-help any time you want this card again.
   2. Run /insight-search before non-trivial changes.
-  3. Run /insight-add the first time you spend >10 min on a non-obvious bug.
+  3. Open a fresh Claude Code session after install or update.
 </insights-share-welcome>
 EOF
   : > "$WELCOME_MARKER" 2>/dev/null || true
