@@ -57,6 +57,7 @@ class Handler(BaseHTTPRequestHandler):
         out: list[str] = []
         if q:
             out.append(q)
+            out.extend(t for t in q.replace(",", " ").split() if len(t) >= 2)
         if cwd:
             for raw in cwd.replace("/", " ").split():
                 if len(raw) < 4:
@@ -113,8 +114,7 @@ class Handler(BaseHTTPRequestHandler):
             tokens = self._expand_tokens(q, cwd)
             hits = []
             for c in cards:
-                hay = " ".join(str(c.get(k, "")) for k in ("title", "trap", "fix")) + \
-                      " " + ",".join(c.get("tags", []) or [])
+                hay = json.dumps(c, ensure_ascii=False)
                 hay = hay.lower()
                 if any(t in hay for t in tokens):
                     hits.append(c)
@@ -137,8 +137,7 @@ class Handler(BaseHTTPRequestHandler):
             if cwd:
                 tokens = self._expand_tokens("", cwd)
                 for c in cards:
-                    hay = " ".join(str(c.get(k, "")) for k in ("title", "trap", "fix")) + \
-                          " " + ",".join(c.get("tags", []) or [])
+                    hay = json.dumps(c, ensure_ascii=False)
                     if any(t in hay.lower() for t in tokens):
                         session_relevant += 1
             return self._json(200, {
@@ -184,7 +183,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(400, {"error": "bad_json", "message": "invalid JSON body"})
         if not isinstance(patch, dict):
             return self._json(400, {"error": "bad_patch", "message": "object required"})
-        for immut in ("id", "created_at"):
+        for immut in ("id", "created_at", "author"):
             patch.pop(immut, None)
         with LOCK:
             cards = _load()

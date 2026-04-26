@@ -19,17 +19,20 @@ below is therefore *meant* to ship in v1, not deferred.
 | Cold-start lazy mirror discovery, 5s budget            | `scripts/cold-start.sh`                                     | `bash scripts/cold-start.sh --status <slug>`                                 |
 | Stop hook = silent capture (NOT nudge)                 | `scripts/capture-async.sh` + `scripts/finalize-buffer.sh`   | `tests/run.sh §B7`                                                           |
 | Async finalize, 30-min idle threshold                  | `scripts/finalize-buffer.sh`                                | `tests/run.sh §B7` (watchdog spawn)                                          |
-| Routing latency budget ≤500ms p95, hot path local-only | `scripts/inject-insights.sh` → `scripts/_inject_hot_path.py`| `tests/run.sh §B6` (20-iter bench, p95 reported)                             |
+| Routing latency budget ≤500ms p95, hot path local-only | `scripts/inject-insights.sh`                              | `tests/run.sh §B6` (20-iter calibrated bench, p95 reported)                   |
 | Topic tags inferred at capture by haiku Layer 2        | `scripts/filter-haiku.sh`                                   | `bash scripts/filter-haiku.sh --self-test`                                   |
 | Filter test corpus (Gate 0)                            | `tests/gate0/run-gate0.sh` + `tests/gate0/seed-corpus.py`   | `bash tests/gate0/run-gate0.sh --strict`                                     |
+| Manual add safety (`/insight-add`)                      | `scripts/add-insight.sh`                                    | `tests/run.sh §T5 add-insight PII redaction + rate limit`                    |
+| Manual partial edit (`/insight-edit`)                   | `scripts/edit-insight.sh`                                   | `tests/run.sh §BTL-1 concurrent different-field edits`                       |
+| Manual delete (`/insight-delete`)                       | `scripts/delete-insight.sh`                                 | `tests/run.sh §BTL-1 delete + 404/search absence`                            |
 | Rating capture (`/insight-rate`)                       | `skills/insight-rate/SKILL.md` + `scripts/rate-lesson.sh`   | `tests/run.sh §B8`                                                           |
-| Scaffolding kept (71 tests + 28 UAT + …)               | `tests/run.sh` (extended to 92), `tests/gate0/`, `examples/`| `bash tests/run.sh`                                                          |
+| Scaffolding kept + promotion/edit/delete lineage covered| `tests/run.sh` (extended to 114), `tests/gate0/`, `examples/`| `bash tests/run.sh`                                                          |
 
 ## P-premise → implementation
 
 | Premise                                              | Implementation                                                                                          |
 |------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| **P3** no `solution` tag — only good/bad + raw       | `_inject_hot_path.py:render()` cites `lesson_id` + topic tags only; no solution field anywhere in schema. |
+| **P3** no `solution` tag — only good/bad + raw       | `inject-insights.sh` cites `lesson_id` + topic tags only; no solution field anywhere in schema.             |
 | **P4** carrier = canonical git remote (HTTPS = SSH)  | `scripts/canonical-remote.sh` (verified by `tests/run.sh §B1`).                                          |
 | **P5 Layer 1** hard-coded regex PII filter           | `scripts/_filter_pii.py` (15 pattern families); driver in `scripts/filter-pii.sh`.                       |
 | **P5 Layer 2** haiku redact + topic tags, 2s timeout | `scripts/filter-haiku.sh`. Drops on timeout / confidence < 0.8.                                          |

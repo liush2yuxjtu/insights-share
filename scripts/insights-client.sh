@@ -4,7 +4,7 @@
 # Subcommands:
 #   list                            GET    /insights              -> JSON array
 #   get <id>                        GET    /insights/<id>         -> single card
-#   search <query> [cwd]            GET    /insights/search?q=Q   -> JSON array
+#   search [--scope S] [--priority P] <query> [cwd] -> JSON array
 #   create <json-file|->            POST   /insights              -> created card
 #   update <id> <json-file|->       PATCH  /insights/<id>         -> updated card
 #   delete <id>                     DELETE /insights/<id>         -> {deleted: id}
@@ -50,9 +50,62 @@ cmd_list() {
 }
 
 cmd_search() {
+  local since="" until="" status="" scope="" priority=""
+  while [[ "${1:-}" == --* ]]; do
+    case "$1" in
+      --since) since="${2:-}"; shift 2 ;;
+      --until) until="${2:-}"; shift 2 ;;
+      --status=*) status="${1#--status=}"; shift ;;
+      --status) status="${2:-}"; shift 2 ;;
+      --scope=*) scope="${1#--scope=}"; shift ;;
+      --scope) scope="${2:-}"; shift 2 ;;
+      --priority=*) priority="${1#--priority=}"; shift ;;
+      --priority) priority="${2:-}"; shift 2 ;;
+      *) break ;;
+    esac
+  done
   local q="${1:-}"
   local cwd="${2:-}"
   [[ -z "$q" && -z "$cwd" ]] && { echo "[]"; return; }
+  if [[ -n "$since" || -n "$until" || -n "$status" || -n "$scope" || -n "$priority" ]]; then
+    local all
+    all=$(cmd_list 2>/dev/null || _cache_read)
+    INSIGHTS_QUERY="$q" INSIGHTS_SINCE="$since" INSIGHTS_UNTIL="$until" INSIGHTS_STATUS="$status" INSIGHTS_SCOPE="$scope" INSIGHTS_PRIORITY="$priority" python3 -c '
+import json, os, sys
+q = os.environ.get("INSIGHTS_QUERY", "").lower()
+since = os.environ.get("INSIGHTS_SINCE", "")
+until = os.environ.get("INSIGHTS_UNTIL", "")
+status = os.environ.get("INSIGHTS_STATUS", "")
+scope = os.environ.get("INSIGHTS_SCOPE", "")
+priority = os.environ.get("INSIGHTS_PRIORITY", "")
+try:
+    data = json.load(sys.stdin)
+except Exception:
+    data = []
+out = []
+tokens = [t for t in q.replace(",", " ").split() if t]
+for c in data if isinstance(data, list) else []:
+    if not isinstance(c, dict):
+        continue
+    hay = json.dumps(c, ensure_ascii=False).lower()
+    ts = str(c.get("created_at") or c.get("updated_at") or c.get("captured_at") or "")
+    if q and q not in hay and not all(t in hay for t in tokens):
+        continue
+    if status and str(c.get("status", "")) != status:
+        continue
+    if scope and str(c.get("scope", "")) != scope:
+        continue
+    if priority and str(c.get("priority", "")) != priority:
+        continue
+    if since and ts[:10] < since:
+        continue
+    if until and ts[:10] > until:
+        continue
+    out.append(c)
+print(json.dumps(out, ensure_ascii=False))
+' <<<"$all"
+    return
+  fi
   local args=(--get)
   [[ -n "$q"   ]] && args+=(--data-urlencode "q=${q}")
   [[ -n "$cwd" ]] && args+=(--data-urlencode "cwd=${cwd}")
@@ -194,7 +247,8 @@ case "${1:-}" in
 usage: insights-client.sh <verb> [args]
   list                            list all insights
   get <id>                        fetch a single card
-  search <q> [cwd]                keyword + cwd-tag search
+  search [--scope S] [--priority P] <q> [cwd]
+                                  keyword + cwd-tag search
   create <file|->                 POST a new card (offline -> outbox)
   update <id> <file|->            PATCH an existing card
   delete <id>                     remove a card

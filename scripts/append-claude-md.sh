@@ -43,25 +43,79 @@ You can read the full README on disk:
 Or fetch the canonical onboarding card any time by running:
   /insight-help
 
-Five slash commands you now have:
+Sixteen slash commands you now have:
   /insight-add       Capture one structured lesson learned.
   /insight-search    Look up team insights before risky changes.
+  /insight-promote   Promote repeated cross-project patterns to team memory.
+  /insight-log       Show source lineage for one insight.
+  /insight-edit      Edit one field on an existing insight card.
+  /insight-delete    Delete one insight card by id.
+  /insight-list      List server or buffered offline insights.
+  /insight-conflict  Detect or inspect cross-project tag conflicts.
+  /insight-resolve   Resolve a stored insight conflict.
+  /insight-notifications  Show insight notifications.
+  /insight-view      Fetch one insight card by id.
   /insight-install   Append the force-install marker to a project CLAUDE.md.
   /insight-server    Start/stop/ping the self-host stub server.
   /insight-help      Print this onboarding card again.
+  /insight-rate      Rate an injected lesson as good/bad/irrelevant.
+  /insight-flush     Force-finalize the current session insight buffer.
 
 Hooks already wired (no action needed):
   SessionStart       This banner + idempotent CLAUDE.md marker.
   UserPromptSubmit   Auto-inject relevant insights every prompt.
   Stop               Nudge to record a lesson when one is detected.
 
+Statusline:
+  Add this after confirming user settings changes:
+  { "statusLine": { "type": "command",
+                    "command": "${CLAUDE_PLUGIN_ROOT}/scripts/statusline.sh" } }
+
+Gate 1 office-hours loop:
+  1. Run /insight-search <topic> before non-trivial changes.
+  2. Run /insight-add when a lesson should become reusable team memory.
+  3. Run /insight-rate <lesson-id> good when a retrieved lesson helps.
+
 Next:
   1. Run /insight-help any time you want this card again.
   2. Run /insight-search before non-trivial changes.
-  3. Run /insight-add the first time you spend >10 min on a non-obvious bug.
+  3. Open a fresh Claude Code session after install or update.
 </insights-share-welcome>
 EOF
   : > "$WELCOME_MARKER" 2>/dev/null || true
+fi
+# --------------------------------------------------------------------
+
+# --- session-start insight delivery ---------------------------------
+CLIENT="${PLUGIN_ROOT}/scripts/insights-client.sh"
+if [[ -x "$CLIENT" ]]; then
+  if command -v timeout >/dev/null 2>&1; then
+    cards=$(timeout 3s bash "$CLIENT" list 2>/dev/null || true)
+  else
+    cards=$(bash "$CLIENT" list 2>/dev/null || true)
+  fi
+  summary=$(printf '%s' "$cards" | python3 -c '
+import json, sys
+try:
+    cards = json.load(sys.stdin)
+except Exception:
+    cards = []
+if not isinstance(cards, list):
+    cards = []
+cards = [c for c in cards if isinstance(c, dict)][-3:]
+for i, c in enumerate(cards, 1):
+    title = (c.get("title") or "(untitled)").strip()
+    author = c.get("author", "unknown")
+    created = c.get("created_at") or c.get("captured_at") or "unknown"
+    tags = ",".join(c.get("tags", []) or c.get("topic_tags", []) or [])
+    print(f"[{i}] {title} by {author} created_at={created} tags={tags}")
+' 2>/dev/null || true)
+  if [[ -n "${summary// }" ]]; then
+    printf '\n<insights-share-session>\n'
+    printf 'Recent team insights available at session start:\n'
+    printf '%s\n' "$summary"
+    printf '</insights-share-session>\n'
+  fi
 fi
 # --------------------------------------------------------------------
 

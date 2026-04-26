@@ -1,7 +1,7 @@
 {
   "name": "insights-share",
-  "version": "0.2.0",
-  "description": "Team-wide insight sharing for Claude Code instances. v0.2 adds the full Approach-B architecture: silent Stop-hook capture into per-session buffers, two-layer PII filter (regex + haiku) with Gate-0 corpus benchmark, GitHub mirror repo storage with per-repo PAT auth, sub-500ms hot-path retrieval with embedding fallback, and /insight-rate + /insight-flush skills.",
+  "version": "0.3.0",
+  "description": "Team-wide insight sharing for Claude Code instances. v0.3 adds the full insight lifecycle command surface: add/search/promote/log/edit/delete/list/conflict/resolve/notifications/view, safer PII-redacted writes with duplicate/rate-limit handling, hook-delivered prompt injection, and zero-start Claude onboarding checks.",
   "author": {
     "name": "V4teamBrain",
     "email": "girardeauwoodcox@gmail.com"

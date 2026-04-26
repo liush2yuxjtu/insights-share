@@ -87,7 +87,7 @@ case "$cmd" in
       mkdir -p "$mirror_dir"
       cat "$local_lessons" >> "$mirror_dir/lessons.jsonl"
       # Dedupe by id to keep file idempotent.
-      python3 -c '
+      F="$mirror_dir/lessons.jsonl" python3 -c '
 import json, os, sys
 path = os.environ["F"]
 seen = set()
@@ -107,7 +107,7 @@ with open(path) as fh:
 with open(path, "w") as fh:
     for obj in out:
         fh.write(json.dumps(obj) + "\n")
-' F="$mirror_dir/lessons.jsonl"
+'
       : > "$local_lessons"
     fi
     if [[ -f "$local_ratings" ]]; then
@@ -115,11 +115,13 @@ with open(path, "w") as fh:
       : > "$local_ratings"
     fi
     ( cd "$mirror_dir"
-      git add lessons.jsonl ratings.jsonl raw/ 2>/dev/null || true
+      git add lessons.jsonl ratings.jsonl 2>/dev/null || true
+      [[ ! -d raw ]] || git add raw/ 2>/dev/null || true
       if ! git diff --cached --quiet 2>/dev/null; then
         git -c user.email="insights-share@localhost" \
             -c user.name="insights-share[bot]" \
-            commit --quiet -m "insights: append from $(hostname) at $(date -u +%FT%TZ)" 2>/dev/null || true
+            commit --quiet -m "insights: append from $(hostname) at $(date -u +%FT%TZ)" \
+            >/dev/null 2>&1 || true
         git push --quiet origin HEAD 2>/dev/null || true
       fi
     ) || true

@@ -8,10 +8,57 @@ project follows semver.
 
 ### Planned
 
-- v0.3: production server reference implementation (Postgres + REST + bearer auth) for non-GitHub deployments.
-- v0.3: nightly automation (dedup, stale flag, digest emission).
-- v0.3: per-folder ACL (Open Question #2).
-- v0.3: GitHub App auth, replacing per-repo PAT.
+- v0.4: production server reference implementation (Postgres + REST + bearer auth) for non-GitHub deployments.
+- v0.4: nightly automation (dedup, stale flag, digest emission).
+- v0.4: per-folder ACL (Open Question #2).
+- v0.4: GitHub App auth, replacing per-repo PAT.
+
+## [0.3.0] — 2026-04-26
+
+v0.3 turns insights-share from a passive injector into a full card lifecycle
+toolkit. Claude instances can now add, promote, inspect, edit, delete, trace,
+resolve, and get notified about team insights from slash commands while keeping
+silent hook delivery intact.
+
+### Added
+
+- Full insight lifecycle command surface:
+  `/insight-add`, `/insight-promote`, `/insight-log`, `/insight-edit`,
+  `/insight-delete`, `/insight-list`, `/insight-conflict`,
+  `/insight-resolve`, `/insight-notifications`, and `/insight-view`.
+- Safer `/insight-add` backing script with Layer-1 PII redaction,
+  required-field validation, duplicate-card detection, and per-minute rate
+  limiting before writes reach the shared store.
+- Cross-session promotion, lineage, conflict detection, conflict resolution,
+  notification, and card-view scripts backed by the existing local + mirror
+  insight storage model.
+- Zero-start Claude onboarding UAT covering marketplace discovery, install,
+  enablement, fresh-session command visibility, and README guidance.
+
+### Changed
+
+- Prompt injection now merges remote, cached, and local cards with explicit
+  `related_to`, `status`, `created_at`, `updated_at`, and `deleted_at`
+  handling so delivered context stays current without leaking deleted cards.
+- README installation, update, command list, file layout, and first-use
+  guidance now match the 16-command plugin surface.
+- `append-claude-md.sh`, `insights-client.sh`, and mirror sync behavior now
+  support quieter hook delivery and cleaner status output.
+
+### Fixed
+
+- Mirror sync no longer leaks noisy pull/push output into user-visible hook
+  paths.
+- Deleted cards are excluded from search, list, and prompt injection results.
+- Concurrent edits merge non-conflicting field updates while rejecting
+  unauthorized authorship changes.
+
+### Tests
+
+- Test suite expanded to 114 assertions, covering insight lifecycle commands,
+  hook-delivered prompt injection, zero-start install checks, PII redaction,
+  duplicate detection, rate limiting, conflict workflows, delete/search misses,
+  offline flush/retry behavior, and mirror-sync cleanliness.
 
 ## [0.2.0] — 2026-04-25
 
@@ -125,6 +172,7 @@ see `docs/B-scope-impl.md` for the full design ↔ file map.
 - `_curl` uses `--fail --connect-timeout 2` to surface connection errors
   rather than silently treating HTML 404 as success.
 
-[Unreleased]: https://github.com/liush2yuxjtu/insights-share/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/liush2yuxjtu/insights-share/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/liush2yuxjtu/insights-share/releases/tag/v0.3.0
 [0.2.0]: https://github.com/liush2yuxjtu/insights-share/releases/tag/v0.2.0
 [0.1.0]: https://github.com/liush2yuxjtu/insights-share/releases/tag/v0.1.0

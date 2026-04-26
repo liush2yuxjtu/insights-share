@@ -23,7 +23,7 @@ You are the operator side of the self-host insights server. The production backe
 | `stop`    | Send SIGTERM to the stub server PID file (`~/.claude/insights/server.pid`). |
 | `ping`    | Hit `/healthz` via the client. Print "ok" + latency or non-zero exit. |
 | `status`  | Show server URL, PID file, last sync, total card count from `/stats`. |
-| `nightly` | Invoke the placeholder nightly job: rotates the server log, dedups cache, runs `/stats` and prints a one-line summary. Real automation lands in v0.2. |
+| `nightly` | Invoke the placeholder nightly job: rotates the server log, dedups cache, runs `/stats` and prints a one-line summary. Real automation lands in v0.4. |
 
 ## How to run
 

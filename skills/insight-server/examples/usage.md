@@ -47,5 +47,5 @@ $ echo "(v0.1 stub: no real automation; rotation + stats only)"
 Reports:
 
 > Rotated server.log → server.log.20260425. Real nightly automation
-> (dedup, stale-card flagging, digest emission) lands in v0.2. No-op for
+> (dedup, stale-card flagging, digest emission) lands in v0.4. No-op for
 > now.
