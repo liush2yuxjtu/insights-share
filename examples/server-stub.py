@@ -183,7 +183,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(400, {"error": "bad_json", "message": "invalid JSON body"})
         if not isinstance(patch, dict):
             return self._json(400, {"error": "bad_patch", "message": "object required"})
-        for immut in ("id", "created_at"):
+        for immut in ("id", "created_at", "author"):
             patch.pop(immut, None)
         with LOCK:
             cards = _load()

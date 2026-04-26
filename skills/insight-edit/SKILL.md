@@ -34,7 +34,7 @@ prints the updated card JSON.
 
 ## Constraints
 
-- Do not edit `id` or `created_at`.
+- Do not edit `id`, `created_at`, or `author`.
 - Prefer one field per invocation so concurrent different-field edits can
   merge naturally on the server.
 - Report any 404 or client error plainly.

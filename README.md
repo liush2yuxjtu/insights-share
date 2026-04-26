@@ -258,9 +258,10 @@ insights-share/
 
 ## Roadmap
 
-- v0.1 (this release): client + hooks + statusline + server contract + self-host stub.
-- v0.2: real server reference implementation (Postgres + REST).
-- v0.3: nightly automation, tag-based filtering, conflict resolution.
+- v0.1: client + hooks + statusline + server contract + self-host stub.
+- v0.2: Approach-B silent capture, PII filtering, mirror storage, and hot-path retrieval.
+- v0.3: full insight lifecycle commands, zero-start onboarding, conflict workflows, and safer writes.
+- v0.4: production server reference implementation, nightly automation, ACLs, and GitHub App auth.
 
 ## License
 

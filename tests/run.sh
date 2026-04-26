@@ -327,9 +327,12 @@ print("OK" if d.get("status") == "archived" and {"archived", "crud"} <= tags els
   && ok "concurrent different-field edits merged on one insight" \
   || fail "concurrent edit merge" "$merge_ok"
 forbidden=$(bash scripts/edit-insight.sh --id "$new_id" --actor bob --field status --value archived 2>/dev/null || true)
-echo "$forbidden" | grep -q '"error":"forbidden"' \
-  && ok "edit-insight rejects non-author actor" \
-  || fail "edit-insight permission boundary" "$forbidden"
+author_edit=$(bash scripts/edit-insight.sh --id "$new_id" --field author --value bob 2>/dev/null || true)
+if echo "$forbidden" | grep -q '"error":"forbidden"' && echo "$author_edit" | grep -q '"error":"immutable_field"'; then
+  ok "edit-insight rejects non-author actor and author rewrites"
+else
+  fail "edit-insight permission boundary" "forbidden=$forbidden author_edit=$author_edit"
+fi
 rm -f "$status_out" "$tags_out"
 
 # PATCH bad json -> 400

@@ -37,7 +37,7 @@ done
 
 [[ -n "$id" && -n "$field" ]] || { usage; exit 2; }
 case "$field" in
-  id|created_at) echo '{"error":"immutable_field"}'; exit 2 ;;
+  id|created_at|author) echo '{"error":"immutable_field"}'; exit 2 ;;
 esac
 
 if [[ -n "$actor" ]]; then
