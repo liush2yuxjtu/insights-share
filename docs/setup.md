@@ -47,12 +47,14 @@ nano ~/.claude-team/config/teammates.json
 ```json
 {
   "teammates": [
-    { "name": "Alice", "ip": "192.168.1.101" },
-    { "name": "Bob", "ip": "192.168.1.102" },
-    { "name": "Charlie", "ip": "192.168.1.103" }
+    { "name": "Alice", "ip": "192.168.1.101", "username": "alice" },
+    { "name": "Bob", "ip": "192.168.1.102", "username": "bob" },
+    { "name": "Charlie", "ip": "192.168.1.103", "username": "charlie" }
   ]
 }
 ```
+
+**注意**：`username` 字段指定 SSH 连接时使用的远程用户名。如果省略，默认为本地用户名 `m1`。
 
 **注意**：IP 必须是 LAN 内可达的固定 IP。
 

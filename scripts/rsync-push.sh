@@ -17,7 +17,8 @@ for entry in ${TEAMMATES}; do
   NAME=$(echo "${entry}" | base64 -d | jq -r '.name')
   IP=$(echo "${entry}" | base64 -d | jq -r '.ip')
 
-  rsync -az --timeout=30 "${HOME}/.claude-team/insights/" "${IP}:${HOME}/.claude-team/insights/" 2>/dev/null || true
+  USERNAME=$(echo "${entry}" | base64 -d | jq -r '.username // "m1"')
+  rsync -az --timeout=30 "${HOME}/.claude-team/insights/" "${USERNAME}@${IP}:\${HOME}/.claude-team/insights/" 2>/dev/null || true
 
   echo "[insights-share] Pushed insights to ${NAME} (${IP})"
 done

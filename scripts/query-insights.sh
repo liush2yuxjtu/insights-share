@@ -26,7 +26,7 @@ if [[ ! -f "${INDEX}" ]]; then
   exit 0
 fi
 
-RESULTS=$(jq --arg p "${PROMPT}" -r '.[] | select(.when_to_use | test($p; "i")) or select(.description | test($p; "i")) or select(.name | test($p; "i")) | "### \(.name)\n**When:** \(.when_to_use)\n**Uploader:** \(.uploader) @ \(.uploader_ip)\n**Description:** \(.description)\n---"' "${INDEX}" 2>/dev/null || echo "")
+RESULTS=$(jq --arg p "${PROMPT}" -r '.insights[] | select([.name, .description, .when_to_use] | any(test($p; "i"))) | "### \(.name)\n**When:** \(.when_to_use)\n**Uploader:** \(.uploader) @ \(.uploader_ip)\n**Description:** \(.description)\n---"' "${INDEX}" 2>/dev/null || echo "")
 
 if [[ -n "${RESULTS}" ]]; then
   ENTRY="**📚 Relevant Insights:**\n\n${RESULTS}"

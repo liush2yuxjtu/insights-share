@@ -1,7 +1,7 @@
 {
   "teammates": [
-    { "name": "Alice", "ip": "192.168.1.101" },
-    { "name": "Bob", "ip": "192.168.1.102" },
-    { "name": "Charlie", "ip": "192.168.1.103" }
+    { "name": "Alice", "ip": "192.168.1.101", "username": "alice" },
+    { "name": "Bob", "ip": "192.168.1.102", "username": "bob" },
+    { "name": "Charlie", "ip": "192.168.1.103", "username": "charlie" }
   ]
 }

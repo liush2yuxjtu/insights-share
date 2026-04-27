@@ -22,7 +22,8 @@ for entry in ${TEAMMATES}; do
 
   PEER_INDEX="${PEER_INDEXES}/${NAME}.index.json"
 
-  rsync -az --timeout=30 "${IP}:${HOME}/.claude-team/insights/index.json" "${PEER_INDEX}" 2>/dev/null || true
+  USERNAME=$(echo "${entry}" | base64 -d | jq -r '.username // "m1"')
+  rsync -az --timeout=30 "${USERNAME}@${IP}:\${HOME}/.claude-team/insights/index.json" "${PEER_INDEX}" 2>/dev/null || true
 
   if [[ -f "${PEER_INDEX}" ]]; then
     echo "[insights-share] Pulled index from ${NAME} (${IP})"
