@@ -27,6 +27,14 @@ case "${SANDBOX_ROOT}" in
     ;;
 esac
 
+# --- 0. If running inside tmux, enable mouse-scroll + big history ----------
+# Ducks expect to scroll with the wheel like any other terminal. Without this,
+# tmux requires Ctrl-B [ to enter copy mode before any scroll works.
+if [ -n "${TMUX:-}" ]; then
+  tmux set-option -g mouse on 2>/dev/null || true
+  tmux set-option -g history-limit 50000 2>/dev/null || true
+fi
+
 # --- 1. Bootstrap sandbox files (if marker missing) -------------------------
 if [ ! -f "${SANDBOX_ROOT}/.sandbox-marker" ]; then
   SANDBOX_ROOT="${SANDBOX_ROOT}" source "${SCRIPT_DIR}/sandbox-bootstrap.sh" >/dev/null
@@ -151,6 +159,9 @@ cat <<'BANNER'
 ❌ 千万别做的事：
    • 不要直接打 bash 命令 —— 你不需要会 bash
    • 不要去碰真家 /Users/m1/.claude —— 沙盒只在 /tmp/duck-pulse-sandbox
+
+🖱️  滚轮已开：直接用滚轮上下滚 tmux 历史；
+    要用键盘滚就 Ctrl-B 然后 [ ，按 q 退出。
 
 正在启动 Claude Code (MiniMax-M2.7-highspeed)…
 BANNER
