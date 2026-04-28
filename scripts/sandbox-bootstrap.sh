@@ -43,6 +43,34 @@ mkdir -p "${SANDBOX_ROOT}/.claude" \
 # Marker so install-statusline.sh / uninstall-statusline.sh light up green.
 date '+sandbox created %Y-%m-%dT%H:%M:%S' > "${SANDBOX_ROOT}/.sandbox-marker"
 
+# Pre-seed Claude Code settings so the first-run wizard (theme picker, trust
+# dialog, onboarding prompts) doesn't ambush the duck. Marking the workspace
+# as trusted via projects map and pinning a dark theme is enough to land
+# directly at the input prompt.
+PLUGIN_DIR_FOR_SETTINGS="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cat > "${SANDBOX_ROOT}/.claude/settings.json" <<EOF
+{
+  "theme": "dark",
+  "hasCompletedProjectOnboarding": true,
+  "hasTrustDialogAccepted": true
+}
+EOF
+# Mark the worktree itself as trusted in the projects metadata so the
+# workspace trust dialog doesn't fire either.
+mkdir -p "${SANDBOX_ROOT}/.claude/projects"
+cat > "${SANDBOX_ROOT}/.claude.json" <<EOF
+{
+  "hasCompletedOnboarding": true,
+  "hasTrustDialogAccepted": true,
+  "projects": {
+    "${PLUGIN_DIR_FOR_SETTINGS}": {
+      "hasTrustDialogAccepted": true,
+      "allowedTools": ["Bash"]
+    }
+  }
+}
+EOF
+
 # Tiny fake index (3 entries, mixed topic_slugs)
 cat > "${SANDBOX_ROOT}/.claude-team/insights/index.json" <<'EOF'
 {"insights":[
