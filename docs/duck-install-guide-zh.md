@@ -87,7 +87,7 @@ bash $INSIGHTS_PLUGIN_DIR/scripts/install-statusline.sh --solo
 
 ```bash
 bash $INSIGHTS_PLUGIN_DIR/scripts/rsync-pull.sh                     # 写 .pulse-sync + .pulse-pipe
-bash $INSIGHTS_PLUGIN_DIR/scripts/query-insights.sh "jsonl ingest"  # 写 .pulse-hit
+bash $INSIGHTS_PLUGIN_DIR/scripts/query-insights.sh "jsonl"  # 写 .pulse-hit（命中 fake 索引里的 1 条）
 ```
 
 > ℹ️ 沙盒里没有真的队友 IP，所以 `rsync-pull.sh` 会写入 `STATE=NOCFG`（没配置）；vault 段会显示灰色而不是绿色，这正常。
@@ -108,13 +108,14 @@ done
 bash $INSIGHTS_PLUGIN_DIR/scripts/statusline-pulse.sh; echo
 ```
 
-应该看到类似：
+应该看到类似（黄色框）：
 
 ```
 [is 1⚠ │ 3· │ 33%cat]
 ```
 
-意思：本轮命中 1 条已知坑（黄色 ⚠）/ vault 共 3 条无配置（灰色 ·）/ pipeline 33% 未分类（绿色）。
+意思：本轮命中 1 条已知坑（黄色 ⚠）/ vault 3 条无队友配置（灰色 ·）/ pipeline 33% 未分类（黄色）。
+整体框是黄色，因为有任意一段告警就会让整个徽章变黄。
 
 ---
 

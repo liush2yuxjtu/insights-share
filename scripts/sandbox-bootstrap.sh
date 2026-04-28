@@ -78,6 +78,6 @@ next:
   bash \$INSIGHTS_PLUGIN_DIR/scripts/install-statusline.sh --check    # confirm 🦆 SANDBOX banner
   bash \$INSIGHTS_PLUGIN_DIR/scripts/install-statusline.sh            # wire badge into sandbox settings.json
   bash \$INSIGHTS_PLUGIN_DIR/scripts/rsync-pull.sh                    # populate vault + pipe flags (no real rsync)
-  bash \$INSIGHTS_PLUGIN_DIR/scripts/query-insights.sh "jsonl"        # populate hit flag
+  bash \$INSIGHTS_PLUGIN_DIR/scripts/query-insights.sh "jsonl"         # populate hit flag (matches fake fixture → 1 hit)
   bash \$INSIGHTS_PLUGIN_DIR/scripts/statusline-pulse.sh; echo        # render the badge
 EOF
