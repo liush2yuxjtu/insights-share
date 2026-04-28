@@ -41,4 +41,15 @@ if [[ -n "${RESULTS}" ]]; then
   echo "${ENTRY}"
 fi
 
+# --- pulse-hit flag (statusline badge) -----------------------------------
+# Count this turn's matches and atomically write 1-3 chars to the flag.
+# Symlink-safe (refuses if target is a symlink), 0600 perms, temp+rename.
+HIT=$(jq --arg p "${PROMPT}" '[.insights[] | select([.name,.description,.when_to_use] | any(test($p; "i")))] | length' "${INDEX}" 2>/dev/null || echo 0)
+HIT="${HIT//[^0-9]/}"; HIT="${HIT:-0}"; [ "${#HIT}" -gt 3 ] && HIT=999
+FLAG="${TEAM_DIR}/.pulse-hit"
+[ -L "${FLAG}" ] || {
+  TMP="${FLAG}.$$.$(date +%s)"
+  printf '%s' "${HIT}" > "${TMP}" && chmod 600 "${TMP}" && mv "${TMP}" "${FLAG}"
+} 2>/dev/null || true
+
 exit 0

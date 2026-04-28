@@ -1,10 +1,10 @@
 {
   "name": "insights-share",
-  "version": "0.1.0",
-  "description": "Team knowledge sharing plugin — silently upload/pull Claude Code insights, traps and lessons learned. LAN teammates share discoveries so others won't repeat the same mistakes.",
+  "version": "0.2.0",
+  "description": "Team knowledge sharing plugin — silently upload/pull Claude Code insights, traps and lessons learned. LAN teammates share discoveries so others won't repeat the same mistakes. Includes a three-segment statusline badge (hit / vault / pipe) for live health visibility.",
   "author": {
     "name": "Team",
     "email": "team@example.com"
   },
-  "keywords": ["team", "insights", "knowledge-sharing", "traps", "lessons-learned"]
+  "keywords": ["team", "insights", "knowledge-sharing", "traps", "lessons-learned", "statusline", "pulse"]
 }
