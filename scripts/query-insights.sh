@@ -15,7 +15,14 @@ fi
 
 mkdir -p "${TEAM_DIR}/cache"
 
-CACHED=$(cat "${CACHE}" 2>/dev/null | jq -r --arg p "${PROMPT}" '.[] | select(.prompt == $p) | .result' 2>/dev/null || echo "")
+# Cache read: only trust the cache if it parses as valid JSON. A corrupted
+# cache (legacy `echo` writer used to interpolate raw newlines from RESULTS
+# into the JSON string field, producing un-escaped control chars) is treated
+# as missing so the next write rebuilds it cleanly.
+CACHED=""
+if [ -f "${CACHE}" ] && jq -e '.' "${CACHE}" >/dev/null 2>&1; then
+  CACHED=$(jq -r --arg p "${PROMPT}" '.[] | select(.prompt == $p) | .result' "${CACHE}" 2>/dev/null || echo "")
+fi
 
 if [[ -n "${CACHED}" ]]; then
   echo "${CACHED}"
@@ -29,13 +36,20 @@ fi
 RESULTS=$(jq --arg p "${PROMPT}" -r '.insights[] | select([.name, .description, .when_to_use] | any(test($p; "i"))) | "### \(.name)\n**When:** \(.when_to_use)\n**Uploader:** \(.uploader) @ \(.uploader_ip)\n**Description:** \(.description)\n---"' "${INDEX}" 2>/dev/null || echo "")
 
 if [[ -n "${RESULTS}" ]]; then
-  ENTRY="**📚 Relevant Insights:**\n\n${RESULTS}"
+  ENTRY="**📚 Relevant Insights:**
 
+${RESULTS}"
+
+  # Cache write: always go through jq so PROMPT and ENTRY are JSON-escaped
+  # correctly (newlines, quotes, unicode). Rebuild fresh if the existing
+  # cache is missing or corrupt; otherwise append.
   TEMP=$(mktemp)
-  if [[ -f "${CACHE}" ]]; then
-    jq --arg p "${PROMPT}" --arg r "${ENTRY}" '. += [{prompt: $p, result: $r}]' "${CACHE}" > "${TEMP}" && mv "${TEMP}" "${CACHE}"
+  if [ -f "${CACHE}" ] && jq -e '.' "${CACHE}" >/dev/null 2>&1; then
+    jq --arg p "${PROMPT}" --arg r "${ENTRY}" '. += [{prompt: $p, result: $r}]' "${CACHE}" > "${TEMP}" \
+      && mv "${TEMP}" "${CACHE}"
   else
-    echo "[{\"prompt\":\"${PROMPT}\",\"result\":\"${ENTRY}\"}]" > "${CACHE}"
+    jq -n --arg p "${PROMPT}" --arg r "${ENTRY}" '[{prompt: $p, result: $r}]' > "${TEMP}" \
+      && mv "${TEMP}" "${CACHE}"
   fi
 
   echo "${ENTRY}"
